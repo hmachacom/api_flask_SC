@@ -25,6 +25,7 @@ def read_csv(file):
 
 
 def query_mysql_insert(query:str, movie:tuple):
+    """ Insert date in data base"""
     try:
         db = MySQLdb.connect(
             host='localhost', port=3306,
@@ -43,6 +44,7 @@ def query_mysql_insert(query:str, movie:tuple):
         return 0
 
 def preload_db(movies_list):
+    """ Preload date in data base"""
     for movie in movies_list:
         query_mysql_insert("INSERT INTO movies VALUES(%s, %s, %s, %s, %s, %s);", tuple(movie))
 

@@ -39,6 +39,7 @@ def get_movies():
 
 @app_views.route('/movie', methods=['POST'], strict_slashes=False)
 def post_movie():
+    """Post new movie in database"""
     validate_db(read_csv('movies.csv'))
     if not request.get_json():
         abort(400, description="Not a JSON")

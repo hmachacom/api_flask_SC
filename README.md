@@ -4,8 +4,8 @@ Esta prueba de programación se deberá implementar utilizando algún framework 
 Python que permita crear servicios web tipo REST.
 
 ## Como usar
-1:
-importar la base de datos donde se va ha cargar el archivo csv
+# 1:importar la base de datos donde se va ha cargar el archivo csv
+
 	´´movies_software_colombia.sql´´
 
 2:

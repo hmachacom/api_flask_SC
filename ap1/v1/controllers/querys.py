@@ -4,6 +4,7 @@ from os import environ
 
 
 def connect():
+    """Conect data base"""
     db = MySQLdb.connect(
             host='localhost', port=3306,
             user=environ.get('user'), passwd=environ.get('passwd'),
@@ -13,11 +14,13 @@ def connect():
 
 
 def disconet(db, cur):
+    """Close conection"""
     cur.close()
     db.close()
 
 
 def validate_db(movie_list):
+    """Validate if databases is empty"""
     db = connect()
     cur = db.cursor()
     cur.execute('SELECT * FROM `movies`;')
@@ -27,6 +30,7 @@ def validate_db(movie_list):
     
 
 def get_movie_db_id(id_movie:int):
+    """get movie in data bases"""
     db = connect()
     cur = db.cursor()
     cur.execute(f'SELECT * FROM `movies` WHERE `id` = {id_movie}')
@@ -46,6 +50,7 @@ def get_movie_db_id(id_movie:int):
 
 
 def get_list_movie(total:int, order:str):
+    """get list movie"""
     db = connect()
     cur = db.cursor()
     cur.execute(f'SELECT * FROM `movies` ORDER BY `film` {order} LIMIT {total}')

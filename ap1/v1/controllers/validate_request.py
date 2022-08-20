@@ -2,6 +2,7 @@ from controllers.querys import get_movie_db_id
 
 
 def validate_json_post(new_movie:dict):
+    """Validate if json is correct"""
     args_json_movie = {
         'id': int,
         'film': str,
@@ -19,6 +20,7 @@ def validate_json_post(new_movie:dict):
 
 
 def validate_id_movie(new_movie:dict):
+    """Validate id is correct"""
     movie_list = get_movie_db_id(new_movie['id'])
     if movie_list:
         film = movie_list['film']

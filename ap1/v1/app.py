@@ -11,7 +11,7 @@ app.register_blueprint(app_views)
 
 @app.route('/', methods=['GET'])
 def get_id():
-    """ root """
+    """ ruta principal para validaciones """
     return jsonify({"page": 'ok'})
 
 
