@@ -27,47 +27,49 @@ GET
  http://localhost:8080/movie?id=19
 
 	obtiene:
+
 	´´
- {
-  "film": "The Heartbreak Kid",
-  "genre": "Comedy",
-  "id": 19,
-  "score": 41,
-  "studio": "Paramount",
-  "year": 2007
-}
-´´
+	{
+	"film": "The Heartbreak Kid",
+	"genre": "Comedy",
+	"id": 19,
+	"score": 41,
+	"studio": "Paramount",
+	"year": 2007
+	}
+	´´
 
 http://localhost:8080/movies?total=3&order=desc
 
 	obtiene:
+
 	´´
- [
-  {
-    "film": "Zack and Miri Make a Porno",
-    "genre": "Romance",
-    "id": 1,
-    "score": 70,
-    "studio": "The Weinstein Company",
-    "year": 2008
-  },
-  {
-    "film": "Youth in Revolt",
-    "genre": "Comedy",
-    "id": 2,
-    "score": 52,
-    "studio": "The Weinstein Company",
-    "year": 2010
-  },
-  {
-    "film": "You Will Meet a Tall Dark Stranger",
-    "genre": "Comedy",
-    "id": 3,
-    "score": 35,
-    "studio": "Independent",
-    "year": 2010
-  }
-]
+	[
+	{
+		"film": "Zack and Miri Make a Porno",
+		"genre": "Romance",
+		"id": 1,
+		"score": 70,
+		"studio": "The Weinstein Company",
+		"year": 2008
+	},
+	{
+		"film": "Youth in Revolt",
+		"genre": "Comedy",
+		"id": 2,
+		"score": 52,
+		"studio": "The Weinstein Company",
+		"year": 2010
+	},
+	{
+		"film": "You Will Meet a Tall Dark Stranger",
+		"genre": "Comedy",
+		"id": 3,
+		"score": 35,
+		"studio": "Independent",
+		"year": 2010
+	}
+	]
 ´´
 POST
  http://localhost:8080/movies
