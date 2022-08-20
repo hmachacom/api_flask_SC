@@ -11,7 +11,7 @@ importar la base de datos donde se va ha cargar el archivo csv
 2:
 en la ruta:
 
-´´/software_colombia´´
+´´$ /software_colombia´´
 
 ejecute:
 
@@ -20,7 +20,8 @@ ejecute:
 	´´$ pip install -r requirements.txt´´
 
 2:
-	´´$ user=user_db passwd=password_db host=localhost  python ap1/v1/app.py ´´
+
+	´´$ user=user_db passwd=password_db host=localhost  python ap1/v1/app.py´´
 
 Hacer solicitudes
 
@@ -81,7 +82,7 @@ POST
  http://localhost:8080/movies
 
 
-´´
+	´´
 	Cuerpo de la petición:
 	{
 	"id": 78,
@@ -96,4 +97,4 @@ POST
 	"message": "La película fue creada con éxito"
 	}
 
-´´
+	´´
