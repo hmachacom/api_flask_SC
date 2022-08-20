@@ -10,12 +10,16 @@ importar la base de datos donde se va ha cargar el archivo csv
 
 2:
 en la ruta:
+
 ´´/software_colombia´´
-	ejecute:
-	1:
+
+ejecute:
+
+1:
+
 	´´$ pip install -r requirements.txt´´
 
-	2:
+2:
 	´´$ user=user_db passwd=password_db host=localhost  python ap1/v1/app.py ´´
 
 Hacer solicitudes
@@ -71,21 +75,25 @@ http://localhost:8080/movies?total=3&order=desc
 	}
 	]
 ´´
+
 POST
+
  http://localhost:8080/movies
+
+
 ´´
-Cuerpo de la petición:
-{
-"id": 78,
-"film":"Van Helsing",
-"genre": "Fantasia",
-"studio": "Universal Studios",
-"score": 100,
-"year": 2004
-}
-Respuesta:
-{
-"message": "La película fue creada con éxito"
-}
+	Cuerpo de la petición:
+	{
+	"id": 78,
+	"film":"Van Helsing",
+	"genre": "Fantasia",
+	"studio": "Universal Studios",
+	"score": 100,
+	"year": 2004
+	}
+	Respuesta:
+	{
+	"message": "La película fue creada con éxito"
+	}
 
 ´´
