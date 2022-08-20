@@ -11,7 +11,7 @@ importar la base de datos donde se va ha cargar el archivo csv
 2:
 en la ruta:
 
-´´$ /software_colombia´´
+	´´$ /software_colombia´´
 
 ejecute:
 
