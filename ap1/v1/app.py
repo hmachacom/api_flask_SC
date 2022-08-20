@@ -1,6 +1,9 @@
 from flask import Flask, render_template, make_response, request
 from flask import jsonify
 from views import app_views
+from controllers.querys import validate_db
+from models.read_csv import read_csv
+from os import environ
 
 app = Flask(__name__)
 app.register_blueprint(app_views)
@@ -24,4 +27,14 @@ def not_found(error):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    host = environ.get('host')
+    if not host:
+        host = '0.0.0.0'
+    port = environ.get('port')
+    if not port:
+        port = 8080
+    debug = environ.get('debug')
+    if not debug:
+        debug = False
+    #validate_db(read_csv('software_colombia/ap1/v1/movies.csv'))
+    app.run(host, port, debug)

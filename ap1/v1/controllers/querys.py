@@ -1,11 +1,12 @@
 import MySQLdb
-from controller.read_csv import preload_db
+from models.read_csv import preload_db
+from os import environ
 
 
 def connect():
     db = MySQLdb.connect(
             host='localhost', port=3306,
-            user='root', passwd='H2502',
+            user=environ.get('user'), passwd=environ.get('passwd'),
             db='movies_software_colombia'
         )
     return db
@@ -16,12 +17,12 @@ def disconet(db, cur):
     db.close()
 
 
-def validate_db():
+def validate_db(movie_list):
     db = connect()
     cur = db.cursor()
     cur.execute('SELECT * FROM `movies`;')
     if cur.rowcount == 0:
-        preload_db()
+        preload_db(movie_list)
     disconet(db, cur)
     
 
@@ -39,7 +40,6 @@ def get_movie_db_id(id_movie:int):
             'studio': movie_list[3],
             'score': movie_list[4],
             'year': movie_list[5],
-
         }
         return movie_json
     return None

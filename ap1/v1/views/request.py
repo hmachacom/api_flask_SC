@@ -1,32 +1,45 @@
 from flask import jsonify, request, abort, make_response
 from views import app_views
-from controller.querys import get_movie_db_id, get_list_movie
-from controller.read_csv import query_mysql_insert
-from controller.validate_request import validate_json_post, validate_id_movie
+from controllers.querys import get_movie_db_id, get_list_movie, validate_db
+from models.read_csv import query_mysql_insert, read_csv
+from controllers.validate_request import validate_json_post, validate_id_movie
 
 
 
 @app_views.route('/movie', methods=['GET'], strict_slashes=False)
 def get_movie():
     """ get movie by id """
+    validate_db(read_csv('movies.csv'))
     args = request.args
     id_movie = args.get("id")
     if id_movie:
-        movie_list = get_movie_db_id(id_movie)
-        if movie_list:
-            return movie_list, 200
+        try:
+            movie_list = get_movie_db_id(int(id_movie))
+            if movie_list:
+                return jsonify(movie_list)
+        except:
+            return jsonify("Id not valid"), 400
+
+
+@app_views.route('/movies', methods=['GET'], strict_slashes=False)
+def get_movies():
+    """ get list movie """
+    validate_db(read_csv('movies.csv'))
+    args = request.args
     total = args.get("total")
     order = args.get("order")
     
     if total and order:
-        list_movie = get_list_movie(int(total), order)
-        return jsonify(list_movie)
-    
-    return jsonify("Args no admit"), 400
+        try:
+            list_movie = get_list_movie(int(total), str(order))
+            return jsonify(list_movie)
+        except:
+            return jsonify("Args no admit"), 400
 
 
 @app_views.route('/movie', methods=['POST'], strict_slashes=False)
 def post_movie():
+    validate_db(read_csv('movies.csv'))
     if not request.get_json():
         abort(400, description="Not a JSON")
     new_movie = request.get_json()

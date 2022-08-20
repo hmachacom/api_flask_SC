@@ -1,4 +1,4 @@
-from controller.querys import get_movie_db_id
+from controllers.querys import get_movie_db_id
 
 
 def validate_json_post(new_movie:dict):
